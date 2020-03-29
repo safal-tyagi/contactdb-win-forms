@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ContactDbWFA.Models
 {
@@ -23,9 +22,10 @@ namespace ContactDbWFA.Models
 
         public bool Find(string toFind)
         {
-            return (FirstName.Contains(toFind) ||
-                MiddleName.Contains(toFind) ||
-                LastName.Contains(toFind));
+            toFind = toFind.ToLower();
+            return (FirstName.ToLower().Contains(toFind) ||
+                MiddleName.ToLower().Contains(toFind) ||
+                LastName.ToLower().Contains(toFind));
         }
 
         public string GetFullName()

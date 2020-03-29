@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace ContactDbWFA.Models
 {
     public enum AddressType
@@ -24,11 +22,12 @@ namespace ContactDbWFA.Models
 
         public bool Find(string toFind)
         {
-            return (AddressType.ToString() == toFind ||
-                StreetApt.Contains(toFind) ||
-                City.Contains(toFind) ||
-                State.Contains(toFind) ||
-                Zip.ToString() == toFind);
+            toFind = toFind.ToLower();
+            return (AddressType.ToString().ToLower() == toFind ||
+                StreetApt.ToLower().Contains(toFind) ||
+                City.ToLower().Contains(toFind) ||
+                State.ToLower().Contains(toFind) ||
+                Zip.ToString().ToLower() == toFind);
         }
 
         public string GetFullAddress()

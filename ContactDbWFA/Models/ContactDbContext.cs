@@ -31,7 +31,7 @@ namespace ContactDbWFA.Models
             {
                 entity.ToTable("ADDRESS");
 
-                entity.Property(e => e.AddressId).ValueGeneratedNever();
+                entity.Property(e => e.AddressId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.AddressType).HasDefaultValueSql("((1))");
 
@@ -61,7 +61,7 @@ namespace ContactDbWFA.Models
             {
                 entity.ToTable("CONTACT");
 
-                entity.Property(e => e.ContactId).ValueGeneratedNever();
+                entity.Property(e => e.ContactId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -82,7 +82,7 @@ namespace ContactDbWFA.Models
             {
                 entity.ToTable("DATE");
 
-                entity.Property(e => e.DateId).ValueGeneratedNever();
+                entity.Property(e => e.DateId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Date1)
                     .HasColumnName("Date")
@@ -99,7 +99,7 @@ namespace ContactDbWFA.Models
             {
                 entity.ToTable("PHONE");
 
-                entity.Property(e => e.PhoneId).ValueGeneratedNever();
+                entity.Property(e => e.PhoneId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.AreaCode)
                     .IsRequired()

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace ContactDbWFA.Models
 {
     public partial class Phone
@@ -15,11 +13,12 @@ namespace ContactDbWFA.Models
 
         public bool Find(string toFind)
         {
+            toFind = toFind.ToLower();
             string fullNumber = AreaCode + Number;
-            return (PhoneType.ToString() == toFind ||
-                AreaCode == toFind ||
-                Number == toFind ||
-                fullNumber == toFind);
+            return (PhoneType.ToString().ToLower() == toFind ||
+                AreaCode.ToLower() == toFind ||
+                Number.ToLower() == toFind ||
+                fullNumber.ToLower() == toFind);
         }
 
         public string GetFullNumber()
